@@ -3,19 +3,22 @@
 #include<string.h>
 #include <stdbool.h>
 
-#define MAX_LINE 300
-#define SHEETNUM 5000
-#define SONGNUM 5000
+#define MAX_LINE 3000
+#define SHEETNUM 2000 
+#define SONGNUM 110000 
 void initialize();
 void split();
 void add(long long song,long long sheet);
 void recommend();
-double cos(int i,int id);
+double cosrel(int i,int id);
 void quickSort(double valueUseful[],long long songUseful[],int len);
 
 long long cfsheet[SHEETNUM];
 long long cfsong[SONGNUM];
 bool cf[SHEETNUM][SONGNUM];
+double value[SONGNUM];
+double valueUseful[SONGNUM];
+long long songUseful[SONGNUM];
 
 int main(void)
 {
@@ -47,7 +50,6 @@ void split(){
 	FILE *fpsheetId=fopen("Music_Data_sheetId.txt","w");
 	char buf[MAX_LINE];
 	char* bf;
-	int i=0;
 	int len;
 	long long song;
 	long long sheet;
@@ -105,9 +107,6 @@ void recommend(){
 	printf("Enter the sheetID:");
 	scanf("%s",input);
 	sheet=atoll(input);
-	double value[SONGNUM];
-	double valueUseful[SONGNUM];
-	long long songUseful[SONGNUM];
 	int i,j,count;
 	double rel;
 	for(i=0;i<SONGNUM;i++)
@@ -120,7 +119,7 @@ void recommend(){
 		if(i==id)
 			rel=0;
 		else
-			rel=cos(i,id);
+			rel=cosrel(i,id);
 		for(j=0;cfsong[j];j++)
 			value[j]+=rel*(double)cf[i][j];
 	}
@@ -131,10 +130,10 @@ void recommend(){
 			j++;
 		}
 	quickSort(valueUseful,songUseful,j);
-	for(i=0;i<j;i++)
+	for(i=0;i<(j<100?j:100);i++)
 		printf("%lld %.12f\n",songUseful[i],valueUseful[i]);
 }
-double cos(int i,int id){
+double cosrel(int i,int id){
 	int j;
 	double result=0;
 	double len1=0;
