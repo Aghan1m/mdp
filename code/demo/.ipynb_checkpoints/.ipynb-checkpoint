@@ -1,0 +1,494 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "# song_input = 'music_data_sample.txt'\n",
+    "# list_input = 'list_data_out_sample.txt'\n",
+    "song_input = 'Musi\n",
+    "c_Data_Out.txt'\n",
+    "list_input = 'List_Data_Out.txt'\n",
+    "\n",
+    "def read_surprise_file(input_path, delimiter):\n",
+    "    return pd.read_table(input_path, delimiter=delimiter)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/ipykernel_launcher.py:8: ParserWarning: Falling back to the 'python' engine because the 'c' engine does not support regex separators (separators > 1 char and different from '\\s+' are interpreted as regex); you can avoid this warning by specifying engine='python'.\n",
+      "  \n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<bound method NDFrame.head of                                                 song_name  \\\n",
+      "0                              Shelly - (日剧《夏洛克：未叙之章》主题曲)   \n",
+      "1                                       FULLMETAL TRIGGER   \n",
+      "2                     Knock U down - (TBS《CDTV》12・1月份开场曲)   \n",
+      "3                  Don't (LIVE:2019/6/18 @Zepp DiverCity)   \n",
+      "4       愛のために ～for love, for a child～ - (为了爱～for love,...   \n",
+      "...                                                   ...   \n",
+      "107209            じゃすと・べりー・くいっくりー! - (Just Very Quickly!)   \n",
+      "107210  悠久のカタルシス ~ラフィー ver.~ - (Everlasting Catharsis ...   \n",
+      "107211             スリーピング・ワンダーランド - (Sleeping Wonderland)   \n",
+      "107212  悠久のカタルシス ~エンタープライズ ver.~ - (Everlasting Cathar...   \n",
+      "107213                               Pledge of liberation   \n",
+      "\n",
+      "                              singer     song_id    album_id  \n",
+      "0                       DEAN FUJIOKA  1406131972  2819914042  \n",
+      "1       THE RAMPAGE from EXILE TRIBE  1408601639  2819914042  \n",
+      "2                               水樹奈々  1407987266  2819914042  \n",
+      "3                        NakamuraEmi  1407245276  2819914042  \n",
+      "4                              EXILE  1408605111  2819914042  \n",
+      "...                              ...         ...         ...  \n",
+      "107209                          山根希美  1398242388  3045620722  \n",
+      "107210                         長縄まりあ  1395784890  3045620722  \n",
+      "107211                         長縄まりあ  1395784893  3045620722  \n",
+      "107212                          石川由依  1393152305  3045620722  \n",
+      "107213                          石川由依  1393152304  3045620722  \n",
+      "\n",
+      "[107214 rows x 4 columns]>\n",
+      "<bound method NDFrame.head of      [一周日语上新] 藤冈靛携新EP《Shelly》神秘来袭  2819914042              日语     (25万)  \\\n",
+      "0                  遗世独立•旷远山谷的喧嚣摆脱  2750999763  New Age 治愈 轻音乐     (665)   \n",
+      "1             清新小调 | 来自冬日漫步里的缱绻浪漫  3107590676        欧美 清新 浪漫    (1270)   \n",
+      "2      2010年代Billboard十年单曲榜TOP100  3054732286           流行 榜单    (1566)   \n",
+      "3                  把记忆写成故事，把歌谣哼成诗  3085089919        华语 流行 安静    (1190)   \n",
+      "4                   一个多愁善感的韩语歌单❤️  3092209640        韩语 流行 清新     (627)   \n",
+      "...                           ...         ...               ...     ...   \n",
+      "1301                      舔 舐 咀 嚼  3068635149            放松 安静    (147)   \n",
+      "1302               台剧 | 想见你 电视原声带  3084306961       影视原声 华语 流行    (139)   \n",
+      "1303                 《误杀》电影〖原声收录】  3115990417         华语 影视原声     (122)   \n",
+      "1304               网易云评论最多民谣TOP50  3112978792        华语 民谣 榜单     (538)   \n",
+      "1305         『碧蓝航线』角色歌「持续更新」含发售日期  3045620722       日语 游戏 ACG     (218)   \n",
+      "\n",
+      "     (1820)  1889  26046324  \n",
+      "0      (12)     8     37080  \n",
+      "1      (14)     9     49907  \n",
+      "2      (17)    13     89567  \n",
+      "3       (4)    18    174790  \n",
+      "4       (2)     9     47467  \n",
+      "...     ...   ...       ...  \n",
+      "1301    (1)     1      6365  \n",
+      "1302    (2)     1      6281  \n",
+      "1303    (5)    12     13325  \n",
+      "1304    (1)     5      5916  \n",
+      "1305    (1)    15      5492  \n",
+      "\n",
+      "[1306 rows x 7 columns]>\n"
+     ]
+    }
+   ],
+   "source": [
+    "song = read_surprise_file(song_input, \"--\")\n",
+    "album = read_surprise_file(list_input, \"--\")\n",
+    "\n",
+    "print(song.head)\n",
+    "print(album.head)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pickle\n",
+    "song_dict = {}\n",
+    "song_out_path = \"songs_dict.pkl\"\n",
+    "for i in range(song.shape[0]):\n",
+    "    song_dict[song.iloc[i, 2]] = song.iloc[i, 0]\n",
+    "pickle.dump(song_dict, open(song_out_path,\"wb\"))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 生成字典\n",
+    "album_id2name = {}\n",
+    "album_name2id = {}\n",
+    "album_id2name_out = \"album_id2name.pkl\"\n",
+    "album_name2id_out = \"album_name2id.pkl\"\n",
+    "for i in range(album.shape[0]):\n",
+    "    album_id2name[album.iloc[i, 1]] = album.iloc[i, 0]\n",
+    "    album_name2id[album.iloc[i, 0]] = album.iloc[i, 1]\n",
+    "pickle.dump(album_id2name, open(album_id2name_out,\"wb\"))\n",
+    "pickle.dump(album_name2id, open(album_name2id_out,\"wb\"))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'Knock\\xa0U\\xa0down - (TBS《CDTV》12・1月份开场曲)'"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "song_id2name = pickle.load(open(song_out_path,'rb'))\n",
+    "song_id2name[1407987266]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'遗世独立•旷远山谷的喧嚣摆脱'"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "album_id2name = pickle.load(open(album_id2name_out,'rb'))\n",
+    "album_id2name[2750999763]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "2750999763"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "album_name2id = pickle.load(open(album_name2id_out,'rb'))\n",
+    "album_name2id['遗世独立•旷远山谷的喧嚣摆脱']"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "song['rating']=1\n",
+    "song['timestamp']=130000000"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "          album_id     song_id  rating  timestamp\n",
+      "0       2819914042  1406131972       1  130000000\n",
+      "1       2819914042  1408601639       1  130000000\n",
+      "2       2819914042  1407987266       1  130000000\n",
+      "3       2819914042  1407245276       1  130000000\n",
+      "4       2819914042  1408605111       1  130000000\n",
+      "...            ...         ...     ...        ...\n",
+      "107209  3045620722  1398242388       1  130000000\n",
+      "107210  3045620722  1395784890       1  130000000\n",
+      "107211  3045620722  1395784893       1  130000000\n",
+      "107212  3045620722  1393152305       1  130000000\n",
+      "107213  3045620722  1393152304       1  130000000\n",
+      "\n",
+      "[107214 rows x 4 columns]\n"
+     ]
+    }
+   ],
+   "source": [
+    "surprise_data = song.drop(song.columns[0:2], axis=1)\n",
+    "album_id = surprise_data.pop('album_id')\n",
+    "surprise_data.insert(0, 'album_id', album_id)\n",
+    "print(surprise_data)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['album_id', 'song_id', 'rating', 'timestamp']"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "list(surprise_data)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "data_path = \"music.csv\"\n",
+    "surprise_data.to_csv(data_path, index=False, header=False)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from surprise import SVD, KNNBaseline, KNNBasic\n",
+    "from surprise import Dataset, Reader\n",
+    "from surprise.model_selection import cross_validate"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "开始训练模型...\n",
+      "Estimating biases using als...\n",
+      "Computing the msd similarity matrix...\n",
+      "Done computing similarity matrix.\n",
+      "1\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"开始训练模型...\")\n",
+    "reader = Reader(line_format='user item rating timestamp', sep=',')\n",
+    "data = Dataset.load_from_file(data_path, reader=reader)\n",
+    "\n",
+    "algo = KNNBaseline()\n",
+    "# perf = cross_validate(algo, data, measures=['RMSE', 'MAE'], cv=5)\n",
+    "all_trainset = data.build_full_trainset()\n",
+    "algo.fit(all_trainset)\n",
+    "#输出结果\n",
+    "print(algo.trainset.to_inner_uid('2750999763'))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "歌单名称: <心动计划>触动你心跳加速的旋律\n",
+      "歌单id: 2946956241\n",
+      "内部id: 49\n"
+     ]
+    }
+   ],
+   "source": [
+    "current_playlist = '<心动计划>触动你心跳加速的旋律'\n",
+    "print(\"歌单名称:\", current_playlist)\n",
+    "\n",
+    "#歌单名称转歌单id\n",
+    "album_id = album_name2id[current_playlist]\n",
+    "print(\"歌单id:\",album_id)\n",
+    "\n",
+    "#歌单id转surprise内部user id\n",
+    "album_inner_id = algo.trainset.to_inner_uid(str(album_id))\n",
+    "print(\"内部id:\",album_inner_id)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "和歌单 《 <心动计划>触动你心跳加速的旋律 》 最相似的10个歌单为：\n",
+      "\n",
+      "清新小调 | 来自冬日漫步里的缱绻浪漫 3107590676\n",
+      "2010年代Billboard十年单曲榜TOP100 3054732286\n",
+      "♡SloMo宝藏BGM♡ 2892787946\n",
+      "有事上车再说. 2881720365\n",
+      "打游戏必备【战歌、节奏电音、重金属】 2816437068\n",
+      "秋风一起，连不小心打声喷嚏都是“爱秋！” 2995781805\n",
+      "李信BGM 『游戏专用』 3039249421\n",
+      "耳朵上的风景，电影里的乡村与民谣 2980709400\n",
+      "在甜橙和淡茶的交汇中 阳光都变得温柔起来 2945719972\n",
+      "流汗吧健身少女 2876709606\n"
+     ]
+    }
+   ],
+   "source": [
+    "#根据内部id找邻近值,返回邻近的内部user id\n",
+    "album_neighbors = algo.get_neighbors(album_inner_id,k=10)\n",
+    "\n",
+    "#把内部userid转成歌单id,再转换成歌单名称返还\n",
+    "album_neighbors = (algo.trainset.to_raw_uid(inner_id) for inner_id in album_neighbors)\n",
+    "# for album_id in album_neighbors:\n",
+    "#     print(album_id)\n",
+    "#     print(album_id2name[int(album_id)])\n",
+    "album_neighbors = (album_id2name[int(album_id)] for album_id in album_neighbors)\n",
+    "\n",
+    "print(\"和歌单 《\", current_playlist, \"》 最相似的10个歌单为：\\n\")\n",
+    "for album in album_neighbors:\n",
+    "    print(album, album_name2id[album])\n",
+    "#     print(\"内部uid:\", algo.trainset.to_inner_uid(str(album_name2id[album])))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Computing the msd similarity matrix...\n",
+      "Done computing similarity matrix.\n"
+     ]
+    },
+    {
+     "data": {
+      "text/plain": [
+       "<surprise.prediction_algorithms.knns.KNNBasic at 0x11aac64a8>"
+      ]
+     },
+     "execution_count": 22,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "item_algo = KNNBasic(k=40,min_k=3,sim_options={'user_based': False}) # sim_options={'name': 'cosine','user_based': True} cosine/msd/pearson/pearson_baseline\n",
+    "item_algo.fit(all_trainset)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "和歌曲 《 Shelly - (日剧《夏洛克：未叙之章》主题曲) 》 最相似的10首歌曲为：\n",
+      "\n",
+      "FULLMETAL TRIGGER\n",
+      "Knock U down - (TBS《CDTV》12・1月份开场曲)\n",
+      "Don't (LIVE:2019/6/18 @Zepp DiverCity)\n",
+      "愛のために ～for love, for a child～ - (为了爱～for love, for a child～)\n",
+      "雨上がり\n",
+      "グリム - (Grimm)\n",
+      "Higher Dimension\n",
+      "コンプレックス・シューティング - (Complex Shooting)\n",
+      "new life\n",
+      "悠久のカタルシス ~クリーブランド ver.~ - (Everlasting Catharsis ~Cleveland ver.~)\n"
+     ]
+    }
+   ],
+   "source": [
+    "def get_similar_songs(top_k, song_id):\n",
+    "    item_inner_id = item_algo.trainset.to_inner_iid(song_id)\n",
+    "    item_neighbors = item_algo.get_neighbors(item_inner_id, k=top_k)\n",
+    "    f_item_neighbors = (item_algo.trainset.to_raw_iid(inner_id)\n",
+    "                       for inner_id in item_neighbors)\n",
+    "    return f_item_neighbors\n",
+    "\n",
+    "current_song_id = 1406131972\n",
+    "print(\"和歌曲 《\", song_id2name[1406131972], \"》 最相似的10首歌曲为：\\n\")\n",
+    "for song_id in list(get_similar_songs(10,'1406131972')):\n",
+    "    print(song_id2name[int(song_id)])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.3"
+  },
+  "latex_envs": {
+   "LaTeX_envs_menu_present": true,
+   "autoclose": false,
+   "autocomplete": true,
+   "bibliofile": "biblio.bib",
+   "cite_by": "apalike",
+   "current_citInitial": 1,
+   "eqLabelWithNumbers": true,
+   "eqNumInitial": 1,
+   "hotkeys": {
+    "equation": "Ctrl-E",
+    "itemize": "Ctrl-I"
+   },
+   "labels_anchors": false,
+   "latex_user_defs": false,
+   "report_style_numbering": false,
+   "user_envs_cfg": false
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
